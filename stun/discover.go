@@ -95,6 +95,11 @@ func (c *Client) discover(conn net.PacketConn, addr *net.UDPAddr) (NATType, *Hos
 	if changedAddr == nil {
 		return NATError, mappedAddr, errors.New("Server error: no changed address.")
 	}
+	c.logger.Debugln(identical, mappedAddr)
+	if identical {
+		return NATNone, mappedAddr, nil
+	}
+
 	if c.GetQuickTest() == false {
 		// Perform test2 to see if the client can receive packet sent from
 		// another IP and port.
