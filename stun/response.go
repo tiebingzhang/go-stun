@@ -66,7 +66,7 @@ func (r *response) String() string {
 	if r == nil {
 		return "Nil"
 	}
-	return fmt.Sprintf("{packet nil: %v, local: %v, remote: %v, changed: %v, other: %v, identical: %v}",
+	return fmt.Sprintf("{isPacketNil: %v, mappedAddr: %v, serverAddr: %v, changedAddr: %v, otherAddr: %v, isIdentical: %v}",
 		r.packet == nil,
 		r.mappedAddr,
 		r.serverAddr,
